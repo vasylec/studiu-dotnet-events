@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="event_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="event_dbConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.studiu_individual.Properties.Settings.GlobalReference.Default.event_dbConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="nrOfParticipantsByEvents_vwTableAdapter" GeneratorDataComponentClassName="nrOfParticipantsByEvents_vwTableAdapter" Name="nrOfParticipantsByEvents_vw" UserDataComponentName="nrOfParticipantsByEvents_vwTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="event_dbConnectionString (Settings)" DbObjectName="event_db.dbo.nrOfParticipantsByEvents_vw" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT denumire, locatie, tip_eveniment, locuri_disponibile, NumarParticipanti FROM dbo.nrOfParticipantsByEvents_vw</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="denumire" DataSetColumn="denumire" />
+              <Mapping SourceColumn="locatie" DataSetColumn="locatie" />
+              <Mapping SourceColumn="tip_eveniment" DataSetColumn="tip_eveniment" />
+              <Mapping SourceColumn="locuri_disponibile" DataSetColumn="locuri_disponibile" />
+              <Mapping SourceColumn="NumarParticipanti" DataSetColumn="NumarParticipanti" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="nrOfParticipantsByEvents_vw" msprop:Generator_RowEvHandlerName="nrOfParticipantsByEvents_vwRowChangeEventHandler" msprop:Generator_RowDeletedName="nrOfParticipantsByEvents_vwRowDeleted" msprop:Generator_RowDeletingName="nrOfParticipantsByEvents_vwRowDeleting" msprop:Generator_RowEvArgName="nrOfParticipantsByEvents_vwRowChangeEvent" msprop:Generator_TablePropName="nrOfParticipantsByEvents_vw" msprop:Generator_RowChangedName="nrOfParticipantsByEvents_vwRowChanged" msprop:Generator_RowChangingName="nrOfParticipantsByEvents_vwRowChanging" msprop:Generator_TableClassName="nrOfParticipantsByEvents_vwDataTable" msprop:Generator_RowClassName="nrOfParticipantsByEvents_vwRow" msprop:Generator_TableVarName="tablenrOfParticipantsByEvents_vw" msprop:Generator_UserTableName="nrOfParticipantsByEvents_vw">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="denumire" msprop:Generator_ColumnPropNameInRow="denumire" msprop:Generator_ColumnPropNameInTable="denumireColumn" msprop:Generator_ColumnVarNameInTable="columndenumire" msprop:Generator_UserColumnName="denumire">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locatie" msprop:Generator_ColumnPropNameInRow="locatie" msprop:Generator_ColumnPropNameInTable="locatieColumn" msprop:Generator_ColumnVarNameInTable="columnlocatie" msprop:Generator_UserColumnName="locatie">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tip_eveniment" msprop:Generator_ColumnPropNameInRow="tip_eveniment" msprop:Generator_ColumnPropNameInTable="tip_evenimentColumn" msprop:Generator_ColumnVarNameInTable="columntip_eveniment" msprop:Generator_UserColumnName="tip_eveniment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locuri_disponibile" msprop:Generator_ColumnPropNameInRow="locuri_disponibile" msprop:Generator_ColumnPropNameInTable="locuri_disponibileColumn" msprop:Generator_ColumnVarNameInTable="columnlocuri_disponibile" msprop:Generator_UserColumnName="locuri_disponibile" type="xs:int" />
+              <xs:element name="NumarParticipanti" msprop:Generator_ColumnPropNameInRow="NumarParticipanti" msprop:Generator_ColumnPropNameInTable="NumarParticipantiColumn" msprop:Generator_ColumnVarNameInTable="columnNumarParticipanti" msprop:Generator_UserColumnName="NumarParticipanti" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
