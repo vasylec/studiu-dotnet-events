@@ -44,7 +44,7 @@ CREATE TABLE inscrieri(
 )
 
 GO
--- Inserări în tabelul evenimente
+
 INSERT INTO evenimente (denumire, data_, locatie, locuri_disponibile, tip_eveniment) VALUES
 (N'Conferința IT', '2026-04-15', N'București', 100, N'Conferință'),
 (N'Workshop Marketing', '2026-05-10', N'Cluj-Napoca', 50, N'Workshop'),
@@ -59,7 +59,6 @@ INSERT INTO evenimente (denumire, data_, locatie, locuri_disponibile, tip_evenim
 
 GO
 
--- Inserări în tabelul participanți
 INSERT INTO participanti (nume, prenume, email) VALUES
 (N'Popescu', N'Andrei', 'andrei.popescu@gmail.com'),
 (N'Ionescu', N'Maria', 'maria.ionescu@yahoo.com'),
@@ -84,7 +83,6 @@ INSERT INTO participanti (nume, prenume, email) VALUES
 
 GO
 
--- Inserări în tabelul înscrieri (2 participanți per eveniment)
 INSERT INTO inscrieri (id_eveniment, id_participant, status_) VALUES
 (1, 1, N'Confirmat'),
 (1, 2, N'Confirmat'),
@@ -119,7 +117,6 @@ CREATE PROCEDURE addEvent
     @nrLocuri INT
 AS
 BEGIN
-    -- verificăm dacă există deja un eveniment identic
     IF NOT EXISTS (
         SELECT 1 
         FROM evenimente
@@ -135,7 +132,6 @@ BEGIN
     END
     ELSE
     BEGIN
-        -- opțional: mesaj dacă există deja
         RAISERROR('Evenimentul există deja!', 16, 1)
     END
 END;
@@ -160,7 +156,6 @@ BEGIN
     BEGIN TRY
         BEGIN TRANSACTION;
 
-        -- Verificăm dacă participantul este deja înscris la eveniment
         IF NOT EXISTS (
             SELECT 1 
             FROM inscrieri
@@ -168,18 +163,15 @@ BEGIN
               AND id_eveniment = @idEveniment
         )
         BEGIN
-            -- Inserăm înscrierea
             INSERT INTO inscrieri (id_eveniment, id_participant, status_) 
             VALUES (@idEveniment, @idParticipant, @status);
 
-            -- Reducem numărul de locuri disponibile
             UPDATE evenimente
             SET locuri_disponibile = locuri_disponibile - 1
             WHERE id_eveniment = @idEveniment;
         END
         ELSE
         BEGIN
-            -- Participantul este deja înscris → mesaj de eroare
             RAISERROR('Participantul este deja inscris la acest eveniment!', 16, 1);
         END
 
